@@ -4,6 +4,8 @@ var app = express();
 app.set('views', './views');
 app.set('view engine', 'jade');
 
+app.use(express.static('static'));
+
 
 app.get('/', function (req, res) {
     res.render('home', {
