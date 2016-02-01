@@ -8,9 +8,11 @@ app.use(express.static('static'));
 
 
 app.get('/', function (req, res) {
-    res.render('home', {
-        title: 'Welcome to my blog!'
-    });
+    res.render('home');
+});
+
+app.get('/about', function (req, res) {
+    res.render('about');
 });
 
 app.listen(3000, function () {

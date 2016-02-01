@@ -1,0 +1,21 @@
+html
+    head
+        title Welcome to my blog!
+        link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin="anonymous", rel='stylesheet')
+        link(href='/css/style.css', rel='stylesheet')
+  body
+    div.blog-masthead
+        div.container
+            nav.blog-nav
+                block nav-links
+
+    div.container.blog-content
+        block content
+
+    footer.blog-footer
+        p Blog built with 
+           a(href='http://expressjs.com/') Express
+           |  and 
+           a(href='http://getbootstrap.com/') Bootstrap
+        p
+            a(href='#') Back to top
