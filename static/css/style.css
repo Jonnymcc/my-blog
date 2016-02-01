@@ -22,6 +22,9 @@ h6, .h6 {
   }
 }
 
+.blog-about {
+    padding-bottom: 20px;
+}
 
 /* From bootstrap blog example */
 .blog-header {
@@ -88,7 +91,8 @@ h6, .h6 {
 
 .blog-content {
     background-color: white;
-    height: 100%
+    min-height: 1080px;
+    padding-left: 30px;
 }
 
 .blog-main {
@@ -97,21 +101,6 @@ h6, .h6 {
   background-color: white;
 }
 
-/* Sidebar modules for boxing content */
-.sidebar-module {
-  padding: 15px;
-  margin: 0 -15px 15px;
-}
-.sidebar-module-inset {
-  padding: 15px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
-}
-.sidebar-module-inset p:last-child,
-.sidebar-module-inset ul:last-child,
-.sidebar-module-inset ol:last-child {
-  margin-bottom: 0;
-}
 
 /* Sidebar modules for boxing content */
 .sidebar-module {
