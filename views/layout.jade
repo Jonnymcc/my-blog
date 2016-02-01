@@ -10,7 +10,27 @@ html
                 block nav-links
 
     div.container.blog-content
-        block content
+        block blog-header
+          div.blog-header
+              h1.blog-title Hello!
+              p.lead.blog-description Welcome to Jonathan McCall's blog
+
+        div.row
+            div.col-sm-8.blog-main
+               block blog-content
+
+             block blog-sidebar
+               div.col-sm-3.com-sm-offset-1.blog-sidebar
+                   div.sidebar-module.sidebar-module-inset
+                       h4 About
+                       p This is where Jonathan McCall writes about software engineering and programming.   Jonathan is currently a software engineer in New York City.
+                   div.sidebar-module
+                       h4 Links
+                       ol.list-unstyled
+                           li
+                               a(href='https://github.com/jonnymcc') Jon's GitHub
+                           li
+                               a(href='https://www.linkedin.com/in/jonathanmcc') Jon on LinkedIn
 
     footer.blog-footer
         p Blog built with 
