@@ -1,0 +1,8 @@
+---
+- hosts: my_blog
+
+  vars:
+    - blog_dir: /opt/my-blog
+
+  roles:
+    - blog
