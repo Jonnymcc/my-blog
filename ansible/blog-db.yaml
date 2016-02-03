@@ -1,0 +1,5 @@
+---
+- hosts: my_blog
+
+  roles:
+    - blog-db
