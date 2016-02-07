@@ -1,7 +1,10 @@
-- apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=EA312927
+- name: Install apt key for mongo
+  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=EA312927
 
-- copy:
+- name: Create mongo apt list
+  copy:
     content: "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse"
     dest: /etc/apt/sources.list.d/mongodb-org-3.2.list
 
-- apt: name=mongodb-org state=present update_cache=yes cache_valid_time=86400
+- name: Install mongo
+  apt: name=mongodb-org state=present update_cache=yes cache_valid_time=86400
