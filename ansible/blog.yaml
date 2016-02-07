@@ -1,5 +1,5 @@
 ---
-- hosts: my_blog
+- hosts: www.jonathanmccall.com
 
   vars:
     - blog_dir: /opt/my-blog

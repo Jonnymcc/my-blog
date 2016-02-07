@@ -1,5 +1,5 @@
 ---
-- hosts: my_blog
+- hosts: www.jonathanmccall.com
 
   roles:
     - blog-db
