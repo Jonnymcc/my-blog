@@ -1,18 +1,20 @@
-- name: Install git
-  apt: name=git state=present
+- name: Install packages
+  apt: name={{ item }} state=present
+  with_items:
+    - git
+    - nodejs
+    - npm
 
-- name: Install nodejs
-  apt: name=nodejs state=present
-
-- name: Install npm
-  apt: name=npm state=present
-
-- git: repo=https://github.com/Jonnymcc/my-blog.git dest={{ blog_dir }} force=yes
+- name: Checkout repo
+  git: repo=https://github.com/Jonnymcc/my-blog.git dest={{ blog_dir }} force=yes
   notify: restart blog
 
-- npm: path={{ blog_dir }}
+- name: Install npm packages
+  npm: path={{ blog_dir }}
 
-- template: src=upstart.j2 dest=/etc/init/blog.conf
+- name: Upload upstart conf
+  template: src=upstart.j2 dest=/etc/init/blog.conf
   notify: restart blog
 
-- service: name=blog state=started
+- name: Start blog
+  service: name=blog state=started
