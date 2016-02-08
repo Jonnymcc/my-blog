@@ -18,3 +18,6 @@
 
 - name: Start blog
   service: name=blog state=started
+
+- name: Configure logrotate for blog access log
+  copy: src=logrotate.conf dest=/etc/logrotate.d/blog
