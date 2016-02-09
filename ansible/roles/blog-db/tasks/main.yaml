@@ -1,3 +1,25 @@
+- name: Create EBS vol
+  sudo: no
+  local_action:
+    module: ec2_vol
+    name: blog-db
+    instance: "{{ ec2_id }}"
+    region: us-east-1
+    volume_size: 1
+    device_name: "{{ device_name }}"
+    volume_type: gp2
+    profile: my_blog
+
+- name: Format volume
+  filesystem: "fstype={{ fstype }} dev={{ device_name }}"
+
+- name: Mount volume onto mount directory
+  mount:
+    name: "{{ mount_point }}"
+    src: "{{ device_name }}"
+    fstype: "{{ fstype }}"
+    state: mounted
+
 - name: Install apt key for mongo
   apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=EA312927
 
@@ -8,3 +30,6 @@
 
 - name: Install mongo
   apt: name=mongodb-org state=present update_cache=yes cache_valid_time=86400
+
+- name: Start mongod
+  service: name=mongod state=started

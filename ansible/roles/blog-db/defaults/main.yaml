@@ -1,0 +1,3 @@
+device_name: /dev/xvdf
+fstype: ext4
+mount_point: /var/lib/mongodb
