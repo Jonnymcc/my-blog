@@ -1,5 +1,5 @@
 - name: Create EBS vol
-  sudo: no
+  become: no
   local_action:
     module: ec2_vol
     name: blog-db
