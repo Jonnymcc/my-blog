@@ -3,6 +3,9 @@ var express = require('express');
 var app = express();
 var routes = require('./routes');
 var morgan = require('morgan')
+var favicon = require('serve-favicon');
+
+app.use(favicon(__dirname + '/static/favicon.png'));
 
 app.set('views', './views');
 app.set('view engine', 'jade');
