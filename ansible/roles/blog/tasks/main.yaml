@@ -28,7 +28,7 @@
   service: name={{ item }} state=started
   with_items:
     - blog
-    - mongo-expresss
+    - mongo-express
 
 - name: Configure logrotate for blog access log
   copy: src=logrotate.conf dest=/etc/logrotate.d/blog
