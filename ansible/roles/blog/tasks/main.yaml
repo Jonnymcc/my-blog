@@ -18,7 +18,7 @@
   notify: restart blog
 
 - name: Upload config for mongo-express
-  copy: src=mongo-express-config.js dest={{ blog_dir }}/node_modules/mongo-express
+  copy: src=mongo-express-config.js dest={{ blog_dir }}/node_modules/mongo-express/config.js
 
 - name: Upload mongo-express upstart conf
   template: src=upstart-mongo-express.j2 dest=/etc/init/mongo-express.conf
