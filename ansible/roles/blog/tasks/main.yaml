@@ -1,9 +1,11 @@
+- name: Add node pacakge source
+  shell: curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+
 - name: Install packages
-  apt: name={{ item }} state=present
+  apt: name={{ item }} state=present  update_cache=yes cache_valid_time=86400
   with_items:
     - git
     - nodejs
-    - npm
 
 - name: Checkout repo
   git: repo=https://github.com/Jonnymcc/my-blog.git dest={{ blog_dir }} force=yes
@@ -19,6 +21,7 @@
 
 - name: Upload config for mongo-express
   copy: src=mongo-express-config.js dest={{ blog_dir }}/node_modules/mongo-express/config.js
+  notify: restart mongo-express
 
 - name: Upload mongo-express upstart conf
   template: src=upstart-mongo-express.j2 dest=/etc/init/mongo-express.conf
