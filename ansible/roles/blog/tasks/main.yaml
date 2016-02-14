@@ -11,13 +11,24 @@
 
 - name: Install npm packages
   npm: path={{ blog_dir }}
+  notify: restart blog
 
 - name: Upload upstart conf
   template: src=upstart.j2 dest=/etc/init/blog.conf
   notify: restart blog
 
-- name: Start blog
-  service: name=blog state=started
+- name: Upload config for mongo-express
+  copy: src=mongo-express-config.js dest={{ blog_dir }}/node_mdules/mongo-express
+
+- name: Upload mongo-express upstart conf
+  template: src=upstart-mongo-express.j2 dest=/etc/init/mongo-express.conf
+  notify: restart mongo-express
+
+- name: Start services
+  service: name={{ item }} state=started
+  with_items:
+    - blog
+    - mongo-expresss
 
 - name: Configure logrotate for blog access log
   copy: src=logrotate.conf dest=/etc/logrotate.d/blog

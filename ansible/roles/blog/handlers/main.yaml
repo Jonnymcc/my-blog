@@ -1,2 +1,5 @@
 - name: restart blog
   service: name=blog state=restarted
+
+- name: restart mongo-express
+  service: name=mongo-express state=restarted
