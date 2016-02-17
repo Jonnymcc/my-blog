@@ -99,10 +99,15 @@ h6, .h6 {
   font-size: 18px;
   line-height: 1.5;
   background-color: white;
+  padding-top: 50px;
 }
 
 
 /* Sidebar modules for boxing content */
+.blog-sidebar {
+  padding-top: 184px;
+}
+
 .sidebar-module {
   padding: 15px;
   margin: 0 -15px 15px;
@@ -148,4 +153,11 @@ h6, .h6 {
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+
+.skills {
+  margin-left: 25px;
+  background-color: #ECECEA;
+  border-radius: 4px;
 }

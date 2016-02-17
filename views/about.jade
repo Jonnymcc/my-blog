@@ -4,10 +4,6 @@ block nav-links
     a(href='/').blog-nav-item Home
     a(href='/about').blog-nav-item.active About
 
-block blog-header
-    div.blog-header
-        h1.blog-title About Me
-
 block blog-content
     div.blog-about
         p Hello, my name is Jonathan McCall. I am a software engineer currently living in New York City. I have worked as a system administrator, data engineer, and DevOps engineer. I enjoy working at startups, the people are passionate and the work is challenging and requires a lot of creativity. Some things that interest me are video games, anime and movies in general, robotics, learning new programming languages, cars and other things that go fast.
@@ -22,18 +18,18 @@ block blog-content
     div.blog-about
         h4 Technologies I've worked with
         h4 Languages
-        ul.list-inline
+        ul.list-inline.skills
             li Python
             li Perl
             li Bash
         h4 Databases
-        ul.list-inline
+        ul.list-inline.skills
             li MySQL
             li MongoDB
             li PostgreSQL
             li Redis
         h4 DevOps
-        ul.list-inline
+        ul.list-inline.skills
             li Elasticsearch
             li Logstash
             li Kibana
@@ -44,19 +40,19 @@ block blog-content
             li Jenkins
             li Nagios
         h4  Servers/Web Frameworks
-        ul.list-inline
+        ul.list-inline.skills
             li Nginx
             li Apache
             li HAProxy
             li Varnish
             li Django
         h4 Project Management
-        ul.list-inline
+        ul.list-inline.skills
             li Scrum
             li JIRA
             li Git
             li Mercurial
         h4 OS
-        ul.list-inline
+        ul.list-inline.skills
             li Ubuntu
             li Mac OS
