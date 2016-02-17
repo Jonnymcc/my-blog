@@ -1,3 +1,16 @@
+- name: check timezone
+  command: cat /etc/timezone
+  register: timezone_contents
+  changed_when: false
+
+- name: Set timezone
+  command: timedatectl set-timezone EST
+  when: timezone_contents.stdout != 'EST'
+  notify:
+    - restart blog
+    - restart mongod
+    - restart mongo-express
+
 - name: Add node apt key
   apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
 
