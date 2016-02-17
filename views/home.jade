@@ -10,4 +10,8 @@ block blog-header
       p.lead.blog-description And welcome to my blog
 
 block blog-content
-  include posts/test-post.jade
+    - each d in docs
+        div.blog-post
+            h2.blog-post-title= d.title
+            p.blog-post-meta= moment(d.date).format('MMMM D, YYYY')
+            | !{ d.text }
