@@ -1,5 +1,8 @@
-- name: Add node pacakge source
-  shell: curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+- name: Add node apt key
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
+
+- name: Copy nodesource list
+  copy: src=nodesource.list dest=/etc/apt/sources.list.d/
 
 - name: Install packages
   apt: name={{ item }} state=present  update_cache=yes cache_valid_time=86400
